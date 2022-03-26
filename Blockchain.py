@@ -137,27 +137,27 @@ class Blockchain:
         encoded_block = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha256(encoded_block).hexdigest()
 
-# this function will checks if the chain is valid
-# it iterate on each of blocks of the chain and make two checks for each of these blocks.
-# the first check // the pervious hash is equal to the hash of the pervious block
-# the second check // check th proof of work is valid
+# # this function will checks if the chain is valid
+# # it iterate on each of blocks of the chain and make two checks for each of these blocks.
+# # the first check // the pervious hash is equal to the hash of the pervious block
+# # the second check // check th proof of work is valid
 
-    def is_valid_chain(self, chain):
-        pervious_block = chain[0]
-        block_index = 1
-        while block_index < len(chain):
-            block = chain[block_index]
-            if block['pervious_hash'] != self.hash(pervious_block):
-                return False
-            pervious_proof = pervious_block['proof']
-            proof = block['proof']
-            hash_operation = hashlib.sha256(
-                str(proof**2 - pervious_proof**2).encode()).hexdigest()
-            if hash_operation[:4] != '0000':
-                return False
-            pervious_block = block
-            block_index += 1
-        return True
+#     def is_valid_chain(self, chain):
+#         pervious_block = chain[0]
+#         block_index = 1
+#         while block_index < len(chain):
+#             block = chain[block_index]
+#             if block['pervious_hash'] != self.hash(pervious_block):
+#                 return False
+#             pervious_proof = pervious_block['proof']
+#             proof = block['proof']
+#             hash_operation = hashlib.sha256(
+#                 str(proof**2 - pervious_proof**2).encode()).hexdigest()
+#             if hash_operation[:4] != '0000':
+#                 return False
+#             pervious_block = block
+#             block_index += 1
+#         return True
 
 
 # 2-  Mining our BlockChain
