@@ -1,4 +1,4 @@
-# Centralize-BlockChain  | Centralize-BlockChain API by python
+# Centralize-BlockChain  | Centralize-BlockChain API
 
  its a simple Centralize BlockChain
 
